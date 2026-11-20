@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio — GTA 6-style cover art, offline</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="stage">
+    <canvas id="preview" width="720" height="720" aria-label="The cover preview"></canvas>
+    <p class="hint">Click a panel to select it. Drag to pan its photo, scroll to zoom.</p>
+  </section>
+  <aside class="controls">
+    <h1>Neon Coast Cover Studio</h1>
+    <p class="tagline">Your photo, your caption — a GTA-style cover in seconds. Everything runs offline; photos never leave this machine.</p>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div class="chips" id="layouts"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Grade</legend>
+      <div class="chips" id="grades"></div>
+    </fieldset>
+
+    <label>Title
+      <input id="title" type="text" maxlength="30" value="NEON COAST">
+    </label>
+    <label>Subtitle
+      <input id="subtitle" type="text" maxlength="40" value="Vice City nights">
+    </label>
+    <label>Title size <span id="titleSizeVal">100%</span>
+      <input id="titleSize" type="range" min="60" max="140" value="100">
+    </label>
+
+    <fieldset>
+      <legend>Photos</legend>
+      <div class="strip" id="photoStrip"></div>
+      <label class="upload">Add your own photos
+        <input id="upload" type="file" accept="image/*" multiple>
+      </label>
+      <p class="note">Click a photo above to put it in the selected panel.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend id="panelLabel">Panel 1 of 9</legend>
+      <label>Photo in this panel
+        <select id="panelPhoto"></select>
+      </label>
+      <label>Zoom <span id="zoomVal">100%</span>
+        <input id="zoom" type="range" min="100" max="300" value="100">
+      </label>
+      <label>Pan left–right <span id="panXVal">0</span>
+        <input id="panX" type="range" min="-100" max="100" value="0">
+      </label>
+      <label>Pan up–down <span id="panYVal">0</span>
+        <input id="panY" type="range" min="-100" max="100" value="0">
+      </label>
+      <button id="fillAll" type="button">Use this photo in every panel</button>
+    </fieldset>
+
+    <fieldset class="toggles">
+      <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Export size</legend>
+      <div class="radios" id="sizes"></div>
+      <label class="check"><input id="exportAll" type="checkbox" checked> Export all three sizes at once</label>
+    </fieldset>
+
+    <div class="actions">
+      <button id="undo" type="button" disabled>Undo</button>
+      <button id="redo" type="button" disabled>Redo</button>
+      <button id="export" type="button" class="primary">Export PNG</button>
+    </div>
+    <p id="status" role="status"></p>
+    <p class="fine">Original art only — no Rockstar logo, artwork or fonts. Anton and Pacifico are under the SIL Open Font License (see app/fonts/). Sample photos were made with an image model.</p>
+  </aside>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
